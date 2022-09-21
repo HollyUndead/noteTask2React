@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/noteTask2React.github,io/static/css/main.7ae4e911.css",
+    "main.js": "/noteTask2React.github,io/static/js/main.23e4f294.js",
+    "static/js/787.19b78939.chunk.js": "/noteTask2React.github,io/static/js/787.19b78939.chunk.js",
+    "static/media/logo.svg": "/noteTask2React.github,io/static/media/logo.b2e5a01e505f739f1484b881277d5186.svg",
+    "index.html": "/noteTask2React.github,io/index.html",
+    "main.7ae4e911.css.map": "/noteTask2React.github,io/static/css/main.7ae4e911.css.map",
+    "main.23e4f294.js.map": "/noteTask2React.github,io/static/js/main.23e4f294.js.map",
+    "787.19b78939.chunk.js.map": "/noteTask2React.github,io/static/js/787.19b78939.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7ae4e911.css",
+    "static/js/main.23e4f294.js"
+  ]
+}
