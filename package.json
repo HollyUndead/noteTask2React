@@ -2,6 +2,7 @@
   "name": "task-2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://hollyundead.github.io/noteTask2React.github,io",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
@@ -11,14 +12,18 @@
     "@types/node": "^17.0.45",
     "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
     "react-scripts": "5.0.1",
+    "save-dev": "^0.0.1-security",
     "typescript": "^4.8.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
