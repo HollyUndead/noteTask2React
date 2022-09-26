@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/noteTask2React/static/css/main.7ae4e911.css",
-    "main.js": "/noteTask2React/static/js/main.7f1a3500.js",
-    "static/js/787.19b78939.chunk.js": "/noteTask2React/static/js/787.19b78939.chunk.js",
-    "static/media/logo.svg": "/noteTask2React/static/media/logo.b2e5a01e505f739f1484b881277d5186.svg",
+    "main.css": "/noteTask2React/static/css/main.0d89f4d5.css",
+    "main.js": "/noteTask2React/static/js/main.300236c8.js",
     "index.html": "/noteTask2React/index.html",
-    "main.7ae4e911.css.map": "/noteTask2React/static/css/main.7ae4e911.css.map",
-    "main.7f1a3500.js.map": "/noteTask2React/static/js/main.7f1a3500.js.map",
-    "787.19b78939.chunk.js.map": "/noteTask2React/static/js/787.19b78939.chunk.js.map"
+    "main.0d89f4d5.css.map": "/noteTask2React/static/css/main.0d89f4d5.css.map",
+    "main.300236c8.js.map": "/noteTask2React/static/js/main.300236c8.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ae4e911.css",
-    "static/js/main.7f1a3500.js"
+    "static/css/main.0d89f4d5.css",
+    "static/js/main.300236c8.js"
   ]
 }
