@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/noteTask2React/static/css/main.e60487dc.css",
-    "main.js": "/noteTask2React/static/js/main.26e59318.js",
+    "main.css": "/noteTask2React/static/css/main.da60b809.css",
+    "main.js": "/noteTask2React/static/js/main.654dce36.js",
     "static/media/task.png": "/noteTask2React/static/media/task.510a4c0b9b6cccedadf5.png",
     "static/media/random thoughts.png": "/noteTask2React/static/media/random thoughts.8223117355254b283d4a.png",
     "static/media/idea.png": "/noteTask2React/static/media/idea.304b5ff98804ea0f2dbb.png",
     "index.html": "/noteTask2React/index.html",
-    "main.e60487dc.css.map": "/noteTask2React/static/css/main.e60487dc.css.map",
-    "main.26e59318.js.map": "/noteTask2React/static/js/main.26e59318.js.map"
+    "main.da60b809.css.map": "/noteTask2React/static/css/main.da60b809.css.map",
+    "main.654dce36.js.map": "/noteTask2React/static/js/main.654dce36.js.map"
   },
   "entrypoints": [
-    "static/css/main.e60487dc.css",
-    "static/js/main.26e59318.js"
+    "static/css/main.da60b809.css",
+    "static/js/main.654dce36.js"
   ]
 }
