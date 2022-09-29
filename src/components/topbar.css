@@ -1,0 +1,51 @@
+.topBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 1100px;
+    max-width: 1500px;
+    margin: 0px auto;
+    background-color: rgb(0 0 0 / 56%);
+    color: white;
+    align-items: center;
+}
+
+.NoteListBar{
+    max-width: 1490px;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+#activePage{
+    width: 60px;
+}
+
+.Archive{
+    justify-content: flex-start;
+    margin-top: 20px;
+    gap: 22%;
+    padding-left: 150px;
+    max-width: 1380px;
+}
+
+#item1{
+    width: 100px;
+}
+
+#item2{
+    width: 75px;
+}
+
+#item3{
+    width: 100px;
+}
+
+#item4{
+    width: 400px;
+    text-align: center;
+}
+
+#item5{
+    width: 100px;
+    text-align: start;
+}

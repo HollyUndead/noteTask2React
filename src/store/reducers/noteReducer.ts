@@ -4,51 +4,128 @@ import { noteState, NoteActionType, NoteAction } from "../../types/note"
 
 const initialState: noteState = {
     note: [],
-    inArchive: 0,
-    notInArchive: 0,
+    taskArctive: 0,
+    taskArchived: 0,
+    ideaActive: 0,
+    ideaArchived: 0,
+    randomActive: 0,
+    randomArchived: 0
 }
 
 let noteCounter = 0;
 
 export function noteReducer(state = initialState, action: NoteAction): noteState{
     let arr = state.note
-    let inAr = state.inArchive
-    let notInArc = state.notInArchive
     let noteIndex;
     switch (action.type){
 
         case NoteActionType.ADD_NEW_NOTE:
-            let note = action.noteObj
-            if (note.noteNum == null){
-                note.noteNum = noteCounter;
+            let notes = action.noteObj
+            if (notes.noteNum == null){
+                notes.noteNum = noteCounter;
                 noteCounter++
+            }else {
+                noteCounter = notes.noteNum
             }
-            console.log(arr)
             arr.push(action.noteObj)
-            console.log(arr)
-            if (note.archived == true){
-                inAr++
-            }else{
-                notInArc++
+            switch (notes.category){
+                case 'Task':
+                    if(notes.archive === true){
+                        state.taskArchived++
+                    }else{
+                        state.taskArctive++
+                    }
+                    break;
+                case 'Random thought':
+                    if(notes.archive === true){
+                        state.randomArchived++
+                    }else{
+                        state.randomActive++
+                    }
+                    break;
+                case 'Idea':
+                    if(notes.archive === true){
+                        state.ideaArchived++
+                    }else{
+                        state.ideaActive++
+                    }
+                    break;
             }
-            return {note: arr, inArchive: inAr, notInArchive: notInArc};
+            return {...state};
 
         case NoteActionType.EDIT_NOTE:
             noteIndex = arr.indexOf(arr.find(note => note.noteNum === action.noteNum))
             arr.splice(noteIndex, 1, action.noteObj)
-            return {note: arr, inArchive: inAr, notInArchive: notInArc}
+            return {...state}
 
         case NoteActionType.DELETE_NOTE:
-            noteIndex = arr.indexOf(arr.find(note => note.noteNum === action.noteNum))
+            let noteForDelet = arr.find(note => note.noteNum === action.noteNum)
+            noteIndex = arr.indexOf(noteForDelet)
+            switch (noteForDelet.category){
+                case 'Task':
+                    if(noteForDelet.archive === true){
+                        state.taskArchived--
+                    }else{
+                        state.taskArctive--
+                    }
+                    break;
+                case 'Random thought':
+                    if(noteForDelet.archive === true){
+                        state.randomArchived--
+                    }else{
+                        state.randomActive--
+                    }
+                    break;
+                case 'Idea':
+                    if(noteForDelet.archive === true){
+                        state.ideaArchived--
+                    }else{
+                        state.ideaActive--
+                    }
+                    break;
+            }
             arr.splice(noteIndex, 1)
-            return {note: arr, inArchive: inAr, notInArchive: notInArc}
+            return {...state}
 
-            case NoteActionType.GET_NOTE:
-                let a = state
-                return a
-
+        case NoteActionType.SWITCHER_ARCHIVE:
+            let noteForSwitch = arr.find(note => note.noteNum === action.noteNum)
+            noteIndex = arr.indexOf(arr.find(note => note.noteNum === action.noteNum))
+            let switcher = !noteForSwitch.archive;
+            noteForSwitch.archive = switcher;
+            switch (noteForSwitch.category){
+                case 'Task':
+                    if(noteForSwitch.archive === true){
+                        state.taskArchived++
+                        state.taskArctive--
+                    }else{
+                        state.taskArctive++
+                        state.taskArchived--
+                    }
+                    break;
+                case 'Random thought':
+                    if(noteForSwitch.archive === true){
+                        state.randomArchived++
+                        state.randomActive--
+                    }else{
+                        state.randomActive++
+                        state.randomArchived--
+                    }
+                    break;
+                case 'Idea':
+                    if(noteForSwitch.archive === true){
+                        state.ideaArchived++
+                        state.ideaActive--
+                    }else{
+                        state.ideaActive++
+                        state.ideaArchived--
+                    }
+                    break;
+            }
+            arr.splice(noteIndex, 1, noteForSwitch)
+            return {...state} 
+            
         default: 
-            return state
+            return {...state}
 
     }
 }

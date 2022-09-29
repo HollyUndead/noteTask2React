@@ -1,0 +1,46 @@
+.NoteList{
+    display: flex;
+    justify-content: space-between;
+    min-width: 1160px;
+    max-width: 1510px;
+    padding-right: 20px;
+    background: rgb(105 127 175 / 78%);
+    margin: 10px auto;
+    align-items: center;
+}
+
+#categoryIMG{
+    width: auto;
+    height: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#name{
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#created{
+    width: 75px;
+}
+
+#category{
+    width: 100px;
+    text-align: center;
+}
+
+#content{
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#dates{
+    width: 115px;
+    word-wrap: break-word;
+    text-align: center;
+}

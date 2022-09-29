@@ -1,15 +1,12 @@
-import { type } from "os"
 
 export interface noteState {
     note: any[],
-    inArchive: number,
-    notInArchive: number,
-}
-
-export enum noteCategory {
-    TASK = 'Task',
-    RANDOM_THOUGHT = 'Random thought',
-    IDEA = 'Idea'
+    taskArctive: number,
+    taskArchived: number,
+    ideaActive: number,
+    ideaArchived: number,
+    randomActive: number,
+    randomArchived: number
 }
 
 export interface noteObj {
@@ -19,14 +16,15 @@ export interface noteObj {
     content: string,
     dates: string,
     noteNum: number | null,
-    archived: boolean
+    archive: boolean
 }
 
 export enum NoteActionType {
     ADD_NEW_NOTE = 'ADD_NEW_NOTE',
     EDIT_NOTE = 'EDIT_NOTE',
     GET_NOTE ='GET_NOTE',
-    DELETE_NOTE = 'DELETE_NOTE'
+    DELETE_NOTE = 'DELETE_NOTE',
+    SWITCHER_ARCHIVE = 'SWITCHER_ARCHIVE'
 }
 
 interface addNewNote {
@@ -42,12 +40,17 @@ interface editNote {
 
 interface getNote {
     type: NoteActionType.GET_NOTE,
+    noteNum: number
 }
 interface deleteNote {
-    type: NoteActionType.DELETE_NOTE
+    type: NoteActionType.DELETE_NOTE,
+    noteNum: number
+}
+
+interface switcherArchive{
+    type: NoteActionType.SWITCHER_ARCHIVE,
     noteNum: number
 }
 
 
-
-export type NoteAction = addNewNote | editNote | getNote | deleteNote;
+export type NoteAction = addNewNote | editNote | getNote | deleteNote | switcherArchive;

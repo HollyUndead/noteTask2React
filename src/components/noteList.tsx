@@ -1,46 +1,79 @@
 import React from 'react'
 import { noteTypeSelector } from '../hooks/noteTypeSelector';
-import { noteReducer } from '../store/reducers/noteReducer';
-import { NoteActionType, noteState, NoteAction, noteObj } from '../types/note';
+import { noteObj } from '../types/note';
 import {useEffect} from 'react'
 import { useDispatch } from 'react-redux';
 import { fetchNotes, addNewNote } from '../store/action-creator/note';
 import type {} from 'redux-thunk/extend-redux';
+import './noteList.css'
+import { searchForDates } from '../functions/createDate';
+import ButtonForNotes from './buttonForNotes';
+
+
+interface arc {
+    archive: boolean,
+    setActive: any,
+    setNoteObj: any,
+    setEditAc: any
+}
 
 
 
-const NoteList: React.FC = () =>{
-    let a: noteObj = {
-        "name": "Go to the hospitals",
-        "created": "5/10/20",
-        "category": "Task",
-        "content": "Needed to be in the hospital at 3pm 15/10/20",
-        "dates": "-",
-        "noteNum": null,
-        "archived": false
-    }
+const NoteList = (props: arc) =>{
+    const idea = require('../img/idea.png')
+    const RandomThought = require('../img/random thoughts.png')
+    const task = require('../img/task.png')
 
     const dispatch = useDispatch()
 
-    const {note, inArchive, notInArchive} = noteTypeSelector(state => state.note)
+    const {note} = noteTypeSelector(state => state.note)
 
     useEffect( () => {
         dispatch(fetchNotes())
     }, [])
     
-
-    function add(){    
-        dispatch(addNewNote(a))
-    }
-    
     return(
         <div>
-            {note.map((note) =>
-                <div key={note.noteNum}>
-                    {note.name}
-                </div>
-                )}
-            <button onClick={add}>Click to add</button>
+            {note.map((note) => {
+                let notInArc = [];
+                let inArc =[];
+                if (note.archive === false){
+                    notInArc.push(note)
+                }else{
+                    inArc.push(note)
+                }
+                let notes;
+                if (props.archive === true){
+                    notes = inArc;
+                }else{
+                    notes = notInArc;
+                }
+                let src:string;
+                switch(note.category){
+                    case 'Idea':
+                        src = idea
+                        break;
+                    case 'Random thought':
+                        src = RandomThought
+                        break;
+                    case 'Task':
+                        src = task
+                        break;
+                }
+                return(
+                    notes.map(note =>
+                <div className='NoteList' id={''+note.noteNum} key={note.noteNum}>
+                    <img id='categoryIMG' src={src} alt="" />
+                    <p id='name'>{note.name}</p>
+                    <p id='created'>{note.created}</p>
+                    <p id='category'>{note.category}</p>
+                    <p id='content'>{note.content}</p>
+                    <p id='dates'>{searchForDates(note.content)}</p>
+                    <div><ButtonForNotes setEditAc={props.setEditAc} setActive={props.setActive} id={note.noteNum} setNoteObj={props.setNoteObj}/></div>
+                </div>)
+                )
+                }
+            )}
         </div>
     )
 }

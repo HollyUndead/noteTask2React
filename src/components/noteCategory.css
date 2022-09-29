@@ -1,0 +1,14 @@
+.categoryDiv{
+    display: flex;
+    justify-content: flex-start;
+    gap: 22%;
+    padding-left: 150px;
+    max-width: 1380px;
+    background: rgb(105 127 175 / 78%);
+    align-items: center;
+    margin: 10px auto;
+}
+
+.categoryDiv>p{
+    width: 108px;
+}

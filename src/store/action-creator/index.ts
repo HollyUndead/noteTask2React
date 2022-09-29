@@ -1,7 +1,7 @@
 import * as NoteActionCreators from './note'
-import * as TodoActionCreators from './todo'
+import * as ArchivedActionCreators from './archived'
 
 export default {
-    ...TodoActionCreators,
+    ...ArchivedActionCreators,
     ...NoteActionCreators
 }

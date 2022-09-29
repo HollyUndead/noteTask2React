@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux'
 import { noteReducer } from './noteReducer'
-import { todoReducer } from './todoReducer'
+import { ArchivedReducer } from './archivedReducer'
 
 export const rootRedcer = combineReducers({
     note : noteReducer,
-    todo: todoReducer
+    archived: ArchivedReducer
 })
 
 export type RootState = ReturnType<typeof rootRedcer>

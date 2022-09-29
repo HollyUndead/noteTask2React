@@ -1,0 +1,15 @@
+.noteButton button:hover {
+    background: rgba(0, 238, 255, 0.678);
+    cursor: pointer;
+}
+
+.noteButton button{
+    margin-left: 10px;
+    border: 0;
+    background: rgb(0 0 0/0.1%);
+}
+
+.noteButton button img{
+    width: 25px;
+    height: auto;
+}
