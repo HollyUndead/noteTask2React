@@ -12,18 +12,19 @@ const initialState: noteState = {
     randomArchived: 0
 }
 
-let noteCounter = 0;
+
 
 export function noteReducer(state = initialState, action: NoteAction): noteState{
     let arr = state.note
-    let noteIndex;
+    let noteIndex, noteCounter;
     switch (action.type){
 
         case NoteActionType.ADD_NEW_NOTE:
             let notes = action.noteObj
             if (notes.noteNum == null){
+                let note1 = state.note.slice(-1)
+                noteCounter = note1[0].noteNum++
                 notes.noteNum = noteCounter;
-                noteCounter++
             }else {
                 noteCounter = notes.noteNum
             }

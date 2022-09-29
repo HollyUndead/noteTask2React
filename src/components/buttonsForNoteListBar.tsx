@@ -13,7 +13,6 @@ function ButtonsForNoteList(){
     const {archived} = noteTypeSelector(state => state.archived)
     function switcher(){
         dispatch(SwitcherArchived(archived))
-        console.log(archived)
     }
 
     return (
