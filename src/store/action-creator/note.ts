@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export function fetchNotes() {
     return async (dispatch: Dispatch<NoteAction>) => {
-        const starterNotes = await axios.get('https://raw.githubusercontent.com/HollyUndead/justJSON/main/notes.json')
+        const starterNotes = await axios.get('https://raw.githubusercontent.com/HollyUndead/noteTask2React/master/src/store/action-creator/notes.json')
         starterNotes.data.data.forEach ((a: noteObj) => {
         dispatch({type: NoteActionType.ADD_NEW_NOTE, noteObj: a})
         })
